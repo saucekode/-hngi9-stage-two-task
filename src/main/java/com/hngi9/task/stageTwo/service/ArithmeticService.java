@@ -3,10 +3,8 @@ package com.hngi9.task.stageTwo.service;
 
 import com.hngi9.task.stageTwo.apimodel.ArithmeticApiModel;
 import com.hngi9.task.stageTwo.dto.ArithmeticDTO;
-import com.hngi9.task.stageTwo.model.OperationType;
 import org.springframework.stereotype.Service;
 
-import java.util.InputMismatchException;
 
 import static com.hngi9.task.stageTwo.model.OperationType.*;
 
@@ -27,10 +25,9 @@ public class ArithmeticService {
         int y = arithmeticDTO.getY();
 
         return switch (arithmeticDTO.getOperationType()){
-            case ADDITION -> ADDITION.apply(x, y);
-            case SUBTRACTION -> SUBTRACTION.apply(x, y);
-            case MULTIPLICATION -> MULTIPLICATION.apply(x, y);
-            default -> throw new ArithmeticException("Problem could be: wrong operation type or wrong input");
+            case addition -> addition.apply(x, y);
+            case subtraction -> subtraction.apply(x, y);
+            case multiplication -> multiplication.apply(x, y);
         };
     }
 

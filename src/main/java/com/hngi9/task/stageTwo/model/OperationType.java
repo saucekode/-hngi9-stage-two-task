@@ -1,19 +1,19 @@
 package com.hngi9.task.stageTwo.model;
 
 public enum OperationType {
-    ADDITION{
+    addition{
         @Override
         public int apply(int x, int y) {
             return x + y;
         }
     },
-    SUBTRACTION{
+    subtraction{
         @Override
         public int apply(int x, int y) {
             return x - y;
         }
     },
-    MULTIPLICATION{
+    multiplication{
         @Override
         public int apply(int x, int y) {
             return x * y;

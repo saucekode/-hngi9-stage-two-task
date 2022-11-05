@@ -25,12 +25,6 @@ public class ArithmeticController {
 
     @PostMapping("calculate")
     public ResponseEntity<ArithmeticApiModel> performCalculations(@RequestBody ArithmeticDTO arithmeticDTO){
-        ArithmeticApiModel response;
-        try{
-            response = arithmeticService.performCalculation(arithmeticDTO);
-        }catch(ArithmeticException e){
-            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
-        }
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return new ResponseEntity<>(arithmeticService.performCalculation(arithmeticDTO), HttpStatus.OK);
     }
 }
