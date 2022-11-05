@@ -28,6 +28,7 @@ public class ArithmeticService {
             case addition -> addition.apply(x, y);
             case subtraction -> subtraction.apply(x, y);
             case multiplication -> multiplication.apply(x, y);
+            default -> throw new ArithmeticException("Problem could be: wrong operation type or wrong input");
         };
     }
 
