@@ -18,7 +18,7 @@ public class ArithmeticService {
                 .builder()
                 .slackUsername("saucekode")
                 .result(processArithmeticOperation(arithmeticDTO))
-                .operationType(processOperationTypes(arithmeticDTO))
+                .operationType(arithmeticDTO.getOperationType())
                 .build();
     }
 
@@ -27,19 +27,11 @@ public class ArithmeticService {
         int y = arithmeticDTO.getY();
 
         return switch (arithmeticDTO.getOperationType()){
-            case "ADDITION", "addition" -> ADDITION.apply(x, y);
-            case "SUBTRACTION", "subtraction" -> SUBTRACTION.apply(x, y);
-            case "MULTIPLICATION", "multiplication" -> MULTIPLICATION.apply(x, y);
+            case ADDITION -> ADDITION.apply(x, y);
+            case SUBTRACTION -> SUBTRACTION.apply(x, y);
+            case MULTIPLICATION -> MULTIPLICATION.apply(x, y);
             default -> throw new ArithmeticException("Problem could be: wrong operation type or wrong input");
         };
     }
 
-    private OperationType processOperationTypes(ArithmeticDTO arithmeticDTO){
-        return switch (arithmeticDTO.getOperationType()){
-            case "ADDITION", "addition" -> ADDITION;
-            case "SUBTRACTION", "subtraction" -> SUBTRACTION;
-            case "MULTIPLICATION", "multiplication" -> MULTIPLICATION;
-            default -> throw new ArithmeticException("Problem could be: wrong operation type or wrong input");
-        };
-    }
 }
