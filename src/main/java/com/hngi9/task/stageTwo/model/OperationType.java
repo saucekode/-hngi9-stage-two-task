@@ -1,7 +1,8 @@
 package com.hngi9.task.stageTwo.model;
 
+
 public enum OperationType {
-    addition{
+    addition {
         @Override
         public int apply(int x, int y) {
             return x + y;
